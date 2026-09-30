@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart Speak Keys Filter - User Guide</title>
+</head>
+<body>
+
+<h1>Smart Speak Keys Filter</h1>
+<p><strong>Version:</strong> 3.0.0<br>
+<strong>Author:</strong> Rosendo Barde Hubilla Junior<br>
+<strong>Minimum NVDA Version:</strong> 2026.1</p>
+
+<h2>Overview</h2>
+<p>Smart Speak Keys Filter is an NVDA add-on that gives you fine-grained control over which keys NVDA announces when the <em>Speak Command Keys</em> feature is turned on. By default, NVDA will speak every key you press when this setting is enabled. This add-on silences keys that are usually distracting to hear &mdash; such as navigation keys and common editing shortcuts &mdash; while still letting NVDA announce the keys you actually want to hear.</p>
+<p>The behavior is inspired by how JAWS handles keystroke announcement, where common shortcuts are silent by default.</p>
+
+<h2>Requirements</h2>
+<ul>
+<li>NVDA 2026.1 or later</li>
+<li>The <em>Speak Command Keys</em> option must be turned ON in NVDA settings for this add-on to have any effect. You can toggle it with <strong>NVDA+4</strong> or find it under NVDA Menu &rarr; Preferences &rarr; Settings &rarr; Keyboard.</li>
+</ul>
+
+<h2>Installation</h2>
+<ol>
+<li>Download the <code>smartSpeakKeys.nvda-addon</code> file.</li>
+<li>Open the file with NVDA (press Enter on it, or go to NVDA Menu &rarr; Tools &rarr; Manage Add-ons &rarr; Install).</li>
+<li>Follow the prompts to install and restart NVDA.</li>
+<li>Make sure <em>Speak Command Keys</em> is enabled. The add-on does nothing if this setting is off.</li>
+</ol>
+
+<h2>How It Works</h2>
+<p>The add-on intercepts every keystroke before NVDA announces it. It checks whether the key should be silenced based on two sources of rules:</p>
+<ol>
+<li><strong>Hardcoded rules</strong> &mdash; a fixed list of common shortcuts that are always silent, regardless of your settings.</li>
+<li><strong>User-configured rules</strong> &mdash; keys and modifier combinations you choose to suppress via the settings dialog.</li>
+</ol>
+<p>If a key matches either rule, NVDA will not announce it. Everything else is announced normally.</p>
+
+<h2>Hardcoded Silent Keys</h2>
+<p>The following keys are <strong>always silent</strong> and cannot be changed from the settings dialog. They are silenced whether or not their modifier is listed in your suppressed modifiers.</p>
+
+<h3>Ctrl + Letter Shortcuts</h3>
+<ul>
+<li><strong>Ctrl+A</strong> &mdash; Select All</li>
+<li><strong>Ctrl+C</strong> &mdash; Copy</li>
+<li><strong>Ctrl+V</strong> &mdash; Paste</li>
+<li><strong>Ctrl+X</strong> &mdash; Cut</li>
+<li><strong>Ctrl+Z</strong> &mdash; Undo</li>
+</ul>
+
+<h3>Ctrl + Tab</h3>
+<ul>
+<li><strong>Ctrl+Tab</strong> &mdash; Switch to next tab</li>
+<li><strong>Ctrl+Shift+Tab</strong> &mdash; Switch to previous tab</li>
+</ul>
+
+<h3>Navigation Key Combinations</h3>
+<ul>
+<li><strong>Ctrl+Home</strong> &mdash; Jump to beginning of document</li>
+<li><strong>Ctrl+End</strong> &mdash; Jump to end of document</li>
+<li><strong>Ctrl+Page Up</strong> &mdash; Jump up by a large amount</li>
+<li><strong>Ctrl+Page Down</strong> &mdash; Jump down by a large amount</li>
+<li><strong>Ctrl+Shift+Home</strong> &mdash; Select from cursor to beginning</li>
+<li><strong>Ctrl+Shift+End</strong> &mdash; Select from cursor to end</li>
+<li><strong>Ctrl+Shift+Page Up</strong> &mdash; Select upward by a large amount</li>
+<li><strong>Ctrl+Shift+Page Down</strong> &mdash; Select downward by a large amount</li>
+<li><strong>Shift+Home</strong> &mdash; Select to beginning of line</li>
+<li><strong>Shift+End</strong> &mdash; Select to end of line</li>
+<li><strong>Shift+Page Up</strong> &mdash; Select upward by one page</li>
+<li><strong>Shift+Page Down</strong> &mdash; Select downward by one page</li>
+</ul>
+
+<h2>Opening the Settings Dialog</h2>
+<p>You can configure which additional keys are suppressed by going to:</p>
+<p><strong>NVDA Menu &rarr; Tools &rarr; Smart Speak Keys Settings...</strong></p>
+<p>The dialog has two sections:</p>
+
+<h3>1. Suppress ALL combos using these modifier keys</h3>
+<p>If you check a modifier here, <em>every</em> key combination that uses that modifier will be silenced. For example, if you check <strong>NVDA</strong>, then NVDA+any key will never be announced. The available modifiers are:</p>
+<ul>
+<li><strong>NVDA</strong> &mdash; The NVDA key (Insert or CapsLock)</li>
+<li><strong>Ctrl</strong> &mdash; The Control key</li>
+<li><strong>Alt</strong> &mdash; The Alt key</li>
+<li><strong>Shift</strong> &mdash; The Shift key</li>
+<li><strong>Win</strong> &mdash; The Windows key</li>
+</ul>
+<p><em>Note: The hardcoded rules above always apply even if a modifier is NOT checked here.</em></p>
+
+<h3>2. Suppress individual keys (no modifier)</h3>
+<p>These checkboxes let you silence specific keys when pressed <em>alone</em>, without any modifier. For example, if you check <strong>Home</strong>, pressing the Home key by itself will be silent. The available keys are:</p>
+<ul>
+<li>Arrow keys: Up, Down, Left, Right</li>
+<li>Navigation: Page Up, Page Down, Home, End</li>
+<li>Tab, Escape</li>
+<li>Delete, Backspace</li>
+<li>Function keys: F1 through F12</li>
+</ul>
+
+<h2>Default Settings</h2>
+<p>When the add-on is first installed (or after pressing <strong>Reset to Defaults</strong>), the following settings are active:</p>
+<ul>
+<li><strong>Suppressed modifier:</strong> NVDA (all NVDA+key combos are silent)</li>
+<li><strong>Suppressed individual keys:</strong> Up Arrow, Down Arrow, Left Arrow, Right Arrow, Page Up, Page Down, Home, End, Tab, Escape, F1&ndash;F12</li>
+</ul>
+
+<h2>Saving and Resetting Settings</h2>
+<ul>
+<li>Click <strong>OK</strong> to save your changes. Settings are saved to a file inside the add-on folder and will persist across NVDA restarts.</li>
+<li>Click <strong>Cancel</strong> to discard any changes.</li>
+<li>Click <strong>Reset to Defaults</strong> to restore the original default settings (you still need to click OK to save).</li>
+</ul>
+
+<h2>Tips and Common Scenarios</h2>
+
+<h3>I want NVDA to stay completely silent while I type and navigate</h3>
+<p>In the settings dialog, check all five modifier keys (NVDA, Ctrl, Alt, Shift, Win) and check all individual keys. This will silence virtually everything.</p>
+
+<h3>I only want to hear letter and number keys, nothing else</h3>
+<p>Check all modifiers and all individual keys in the settings dialog. The hardcoded shortcuts will also remain silent automatically.</p>
+
+<h3>I want to hear F-keys but not arrow keys</h3>
+<p>In the individual keys section, uncheck F1&ndash;F12 and keep the arrow keys checked.</p>
+
+<h3>I want to hear all Ctrl combinations except the ones already hardcoded</h3>
+<p>Make sure Ctrl is NOT checked in the modifier section. Only the hardcoded Ctrl shortcuts (A, C, V, X, Z, Tab, Home, End, Page Up, Page Down, and their Shift variants) will be silent.</p>
+
+<h2>Uninstalling</h2>
+<ol>
+<li>Go to NVDA Menu &rarr; Tools &rarr; Manage Add-ons.</li>
+<li>Find <strong>Smart Speak Keys Filter</strong> in the list.</li>
+<li>Press the <strong>Disable</strong> or <strong>Remove</strong> button.</li>
+<li>Restart NVDA when prompted.</li>
+</ol>
+
+<h2>Troubleshooting</h2>
+<p><strong>Keys are still being announced even though I configured them to be silent.</strong><br>
+Make sure <em>Speak Command Keys</em> is enabled in NVDA settings. The add-on only filters announcements when this setting is on.</p>
+
+<p><strong>The add-on does not appear in the Tools menu.</strong><br>
+Restart NVDA. If it still does not appear, check the NVDA log (NVDA Menu &rarr; Tools &rarr; View Log) for any errors related to <code>smartSpeakKeys</code>.</p>
+
+<p><strong>I changed my settings but they did not take effect.</strong><br>
+Make sure you clicked OK and not Cancel in the settings dialog. Your settings are applied immediately after clicking OK without needing to restart NVDA.</p>
+
+<h2>Contact and Support</h2>
+<p>This add-on was created by <strong>Rosendo Barde Hubilla Junior</strong></p>
+
+</body>
+</html>
+<hr><p>Version 2.7.0 updates: Added improved key name normalization, modifier+numpad navigation key speech improvements, Enter normalization, updated compatibility notes.</p><p>Contact: hubillarosendo@gmail.com</p><hr><h2>Version 3.0.0</h2><ul><li>Refined suppression behavior for numpad Enter/Delete.</li><li>Startup settings refresh.</li><li>Simplified Numpad Keys option label.</li><li>Known limitation: Input Help uses modified key names.</li></ul>
