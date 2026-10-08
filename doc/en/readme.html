@@ -7,7 +7,7 @@
 <body>
 
 <h1>Smart Speak Keys Filter</h1>
-<p><strong>Version:</strong> 3.0.0<br>
+<p><strong>Version:</strong> 3.0.1<br>
 <strong>Author:</strong> Rosendo Barde Hubilla Junior<br>
 <strong>Minimum NVDA Version:</strong> 2026.1</p>
 
@@ -71,10 +71,10 @@
 <li><strong>Shift+Page Down</strong> &mdash; Select downward by one page</li>
 </ul>
 
-<h2>Opening the Settings Dialog</h2>
+<h2>Opening the Settings</h2>
 <p>You can configure which additional keys are suppressed by going to:</p>
-<p><strong>NVDA Menu &rarr; Tools &rarr; Smart Speak Keys Settings...</strong></p>
-<p>The dialog has two sections:</p>
+<p><strong>NVDA Menu &rarr; Preferences &rarr; Settings &rarr; Smart Speak Keys Filter</strong></p>
+<p>The settings category uses accessible checkable lists (the same kind of list NVDA itself uses for NVDA modifier keys) and has two sections:</p>
 
 <h3>1. Suppress ALL combos using these modifier keys</h3>
 <p>If you check a modifier here, <em>every</em> key combination that uses that modifier will be silenced. For example, if you check <strong>NVDA</strong>, then NVDA+any key will never be announced. The available modifiers are:</p>
@@ -88,7 +88,7 @@
 <p><em>Note: The hardcoded rules above always apply even if a modifier is NOT checked here.</em></p>
 
 <h3>2. Suppress individual keys (no modifier)</h3>
-<p>These checkboxes let you silence specific keys when pressed <em>alone</em>, without any modifier. For example, if you check <strong>Home</strong>, pressing the Home key by itself will be silent. The available keys are:</p>
+<p>These checkable list items let you silence specific keys when pressed <em>alone</em>, without any modifier. For example, if you check <strong>Home</strong>, pressing the Home key by itself will be silent. Numpad keys are listed individually. The available keys are:</p>
 <ul>
 <li>Arrow keys: Up, Down, Left, Right</li>
 <li>Navigation: Page Up, Page Down, Home, End</li>
@@ -101,12 +101,12 @@
 <p>When the add-on is first installed (or after pressing <strong>Reset to Defaults</strong>), the following settings are active:</p>
 <ul>
 <li><strong>Suppressed modifier:</strong> NVDA (all NVDA+key combos are silent)</li>
-<li><strong>Suppressed individual keys:</strong> Up Arrow, Down Arrow, Left Arrow, Right Arrow, Page Up, Page Down, Home, End, Tab, Escape, F1&ndash;F12</li>
+<li><strong>Suppressed individual keys:</strong> Up Arrow, Down Arrow, Left Arrow, Right Arrow, Tab, Delete, Backspace</li>
 </ul>
 
 <h2>Saving and Resetting Settings</h2>
 <ul>
-<li>Click <strong>OK</strong> to save your changes. Settings are saved to a file inside the add-on folder and will persist across NVDA restarts.</li>
+<li>Click <strong>OK</strong> to save your changes. Settings are saved to a file inside your NVDA user configuration folder and will persist across NVDA restarts.</li>
 <li>Click <strong>Cancel</strong> to discard any changes.</li>
 <li>Click <strong>Reset to Defaults</strong> to restore the original default settings (you still need to click OK to save).</li>
 </ul>
@@ -137,8 +137,8 @@
 <p><strong>Keys are still being announced even though I configured them to be silent.</strong><br>
 Make sure <em>Speak Command Keys</em> is enabled in NVDA settings. The add-on only filters announcements when this setting is on.</p>
 
-<p><strong>The add-on does not appear in the Tools menu.</strong><br>
-Restart NVDA. If it still does not appear, check the NVDA log (NVDA Menu &rarr; Tools &rarr; View Log) for any errors related to <code>smartSpeakKeys</code>.</p>
+<p><strong>The add-on settings do not appear.</strong><br>
+Open NVDA Menu &rarr; Preferences &rarr; Settings and look for the <strong>Smart Speak Keys Filter</strong> category. If it is missing, restart NVDA. If it still does not appear, check the NVDA log (NVDA Menu &rarr; Tools &rarr; View Log) for any errors related to <code>smartSpeakKeys</code>.</p>
 
 <p><strong>I changed my settings but they did not take effect.</strong><br>
 Make sure you clicked OK and not Cancel in the settings dialog. Your settings are applied immediately after clicking OK without needing to restart NVDA.</p>
@@ -148,4 +148,4 @@ Make sure you clicked OK and not Cancel in the settings dialog. Your settings ar
 
 </body>
 </html>
-<hr><p>Version 2.7.0 updates: Added improved key name normalization, modifier+numpad navigation key speech improvements, Enter normalization, updated compatibility notes.</p><p>Contact: hubillarosendo@gmail.com</p><hr><h2>Version 3.0.0</h2><ul><li>Refined suppression behavior for numpad Enter/Delete.</li><li>Startup settings refresh.</li><li>Simplified Numpad Keys option label.</li><li>Known limitation: Input Help uses modified key names.</li></ul>
+<hr><p>Version 2.7.0 updates: Added improved key name normalization, modifier+numpad navigation key speech improvements, Enter normalization, updated compatibility notes.</p><p>Contact: hubillarosendo@gmail.com</p><hr><h2>Version 3.0.0</h2><ul><li>Refined suppression behavior for numpad Enter/Delete.</li><li>Startup settings refresh.</li><li>Simplified Numpad Keys option label.</li><li>Known limitation: Input Help uses modified key names.</li></ul><hr><h2>Version 3.0.1</h2><ul><li>Settings moved to NVDA Settings &rarr; Smart Speak Keys Filter category for easier discovery.</li><li>Key and modifier selection now uses accessible checkable lists (same style as NVDA's own NVDA modifier keys list); numpad keys are listed individually.</li><li>Code style updated to tabs per the NVDA developer guide.</li></ul>
